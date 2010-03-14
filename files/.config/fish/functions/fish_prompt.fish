@@ -14,8 +14,19 @@ function fish_prompt -d "Write out the prompt"
 	# end
  
 	# Print git branch
-	if git status > /dev/null 2>&1
-		printf ' %s%s/%s' (set_color normal) (set_color blue) (parse_git_branch) 
+	if is_git_repo
+		if git_dirty
+			set_color red
+		else
+			if git_pushed
+				set_color green
+			else
+				set_color blue
+			end
+		end
+	
+		printf ' %s:%s' (parse_git_branch) (parse_git_rev)
 	end
+	
 	printf '%s> ' (set_color normal)
 end
