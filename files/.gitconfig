@@ -3,3 +3,21 @@
 	email = dancer@feistystudios.com
 [core]
 	excludesfile = /Users/dancer/.gitignore
+	autocrlf = true
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = green bold
+	local = green
+	remote = blue
+[color "diff"]
+	meta = yellow bold
+	frag = cyan bold
+	old = red
+	new = green
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
