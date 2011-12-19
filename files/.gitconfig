@@ -1,8 +1,9 @@
 [user]
-	name = DaNCeR
-	email = dancer@feistystudios.com
+	name = Nick Dancer
+	email = nick@dancr.me
 [core]
 	excludesfile = /Users/dancer/.gitignore
+	editor = mate -w
 [color]
 	branch = auto
 	diff = auto
