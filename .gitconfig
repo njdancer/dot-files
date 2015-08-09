@@ -1,9 +1,8 @@
 [user]
 	name = Nick Dancer
-	email = nick@dancr.me
+	email = nick@dncr.me
 [core]
-	excludesfile = /Users/dancer/.gitignore
-	editor = mate -w
+	editor = mvim -f --nomru -c "au VimLeave * !open -a Terminal"
 [color]
 	branch = auto
 	diff = auto
@@ -21,3 +20,9 @@
 	added = green
 	changed = yellow
 	untracked = red
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+

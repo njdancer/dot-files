@@ -55,7 +55,7 @@ set wildmenu " visual autocomplete for command
 set lazyredraw " redraw only when we need to.
 set laststatus=2 " Show status line when < 2 buffers open
 set listchars=tab:▸\ ,eol:¬ " Show invisble characters(tab and eol)
-set list!
+set list
 set number " show absolute line number on current line
 set relativenumber " show relative line numbers everywhere else
 
@@ -80,11 +80,29 @@ set backspace=indent,eol,start
 " Allow hidden buffers, don't limit to 1 file per window/split
 set hidden
 
-nnoremap <leader>e :NERDTreeToggle<cr>
 nnoremap <leader><space> :nohlsearch<cr>
-call NERDTreeAddKeyMap({
-       \ 'key': 'f',
-       \ 'scope': 'all',
-       \ 'callback': 'CD',
-       \ 'quickhelpText': 'change the CWD and tree root to the selected dir' })
+
+" Toggle nerdtree as drawer for 1 window and netrw style for more then 1
+" This is to help avoid ambiguity around which window file will be opened in
+function! ToggleExplorer()
+        " If a secondary tree is open in current window then return to
+        " previous buffer
+        if exists("b:NERDTreeType") && b:NERDTreeType ==# "secondary" && b:NERDTreePreviousBuf != -1
+                exec "buffer " . b:NERDTreePreviousBuf
+        " winbufnr returns a negative when specified window does not exist
+        " If no more then 1 window excluding NERDTree open then toggle tree
+        elseif winbufnr(2) < 0 || (g:NERDTree.GetWinNum() > -1 && winbufnr(3))
+                execute ':NERDTreeToggle'
+        else
+        " Otherwise open tree in current window
+                execute ':edit .'
+        endif
+endfunction
+command! -nargs=0 ToggleExplorer :call ToggleExplorer()
+nnoremap <leader>t :ToggleExplorer<cr>
+
+
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>evs :vsp $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
