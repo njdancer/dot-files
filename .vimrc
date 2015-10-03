@@ -72,6 +72,7 @@ set listchars=tab:▸\ ,eol:¬ " Show invisble characters(tab and eol)
 set list
 set number " show absolute line number on current line
 set relativenumber " show relative line numbers everywhere else
+let &colorcolumn="80,".join(range(120,999),",") " add marker on line 80 and past line 120
 
 
 set incsearch " search as characters are entered
