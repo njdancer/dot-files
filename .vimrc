@@ -18,6 +18,8 @@ let NERDTreeIgnore = ['\.DS_Store'] " Array of regexs for files to be ignored
 let NERDTreeShowHidden=1 " Show hidden files by default
 let NERDTreeChDirMode=2 " This will change CWD whenever tree root is changed
 Plugin 'tpope/vim-fugitive'
+Plugin 'mbbill/undotree'
+let g:undotree_SetFocusWhenToggle = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -107,4 +109,6 @@ nnoremap <leader>t :ToggleExplorer<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>evs :vsp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+nnoremap <leader>u :UndotreeToggle<cr>
 
