@@ -1,3 +1,4 @@
+" CHEAT: Install vundle `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -65,6 +66,7 @@ set hlsearch " highlight matches
 
 " Move temp files into a central folder to avoid clutter
 " Taken from http://blog.mattcrampton.com/post/86216925656/move-vim-swp-files
+" CHEAT: create required directories `mkdir -p ~/.vim/{backup_files,swap_files,undo_files}`
 set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
 set undodir=~/.vim/undo_files//
