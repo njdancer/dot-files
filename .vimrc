@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore = ['\.DS_Store'] " Array of regexs for files to be ignored
 let NERDTreeShowHidden=1 " Show hidden files by default
 let NERDTreeChDirMode=2 " This will change CWD whenever tree root is changed
+let NERDTreeShowBookmarks=1
 Plugin 'tpope/vim-fugitive'
 Plugin 'mbbill/undotree'
 let g:undotree_SetFocusWhenToggle = 1
